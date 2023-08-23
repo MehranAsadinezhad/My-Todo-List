@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function Header() {
   return (
-    <div>
-        <h1></h1>
-    </div>
+    <header className='flex items-center justify-center bg-primaryPink'>
+        <h1 className='font-extrabold text-7xl'>🌴 FAR AWAY 🧳</h1>
+    </header>
   )
 }

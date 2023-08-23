@@ -8,12 +8,12 @@ function App() {
 
 
   return (
-    <>
+    <div className='grid grid-rows-4 h-screen'>
       <Header />
       <AddItem />
       <Items />
       <Footer />
-    </>
+    </div>
   )
 }
 

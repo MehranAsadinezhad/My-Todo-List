@@ -7,9 +7,13 @@ export default {
       colors: {
         darkBrown: '#5a3e2b',
         lightBrown: '#ffebb3',
-        primaryOrange: '#f4a226',
-        secondaryOrange: '#e5771f',
+        primaryPink: '#f2a2',
+        secondaryPink: '#f2a',
         cyan: '#76c7ad',
+      },
+      fontFamily: {
+        primary: 'righteous',
+        secondary: 'QuickSand',
       },
     },
   },
