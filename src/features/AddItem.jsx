@@ -36,7 +36,7 @@ export default function AddItem({ onAddItems }) {
             <input type='text' id='description'
                 className='bg-black rounded-full py-3 px-5 
             text-white mx-5 focus:outline-none transition-all
-            focus:ring focus:ring-pink-100 focus:px-7' placeholder='Item...'
+            focus:ring focus:ring-sky-400 focus:px-7' placeholder='Item...'
                 value={description} onChange={(e) => setDescription(e.target.value)}></input>
 
             <button className='bg-pink-100 py-3 px-5 rounded-full

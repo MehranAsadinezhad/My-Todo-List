@@ -6,7 +6,8 @@ import Footer from "./features/Footer"
 
 function App() {
   const [items, setItems] = useState([]);
-
+  const numItems = items.length;
+  const packedItems = items.filter(item => item.packed === true).length;
 
   function handleAddItems(item) {
     setItems((items) => [...items, item])
@@ -28,7 +29,7 @@ function App() {
       <AddItem onAddItems={handleAddItems} />
       <Items onDeleteItem={handleDeleteItem} items={items}
         onChangePacked={handleChangePacked} onClearItems={handleClearItems} />
-      <Footer />
+      <Footer numItems={numItems} packedItems={packedItems}/>
     </div>
   )
 }

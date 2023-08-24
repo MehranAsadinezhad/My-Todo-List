@@ -16,23 +16,25 @@ export default function Items({ items, onDeleteItem, onChangePacked, onClearItem
 
     return (
         <div className='flex flex-col justify-between 
-        bg-sky-400'>
+        bg-sky-400 transition-all'>
+            <div className='my-7 mx-44 '>
+                <ul className='flex flex-wrap overflow-y-scroll'>
+                    {sortedItems.map((item) =>
+                        <li className='flex mr-10 mt-5'
+                            item={item} key={item.id}>
+                            <input type='checkbox' className='cursor-pointer w-5'
+                                defaultValue={item.packed}
+                                onChange={() => onChangePacked(item.id)}></input>
 
-            <ul className='flex flex-wrap my-7 mx-44 overflow-y-scroll'>
-                {sortedItems.map((item) =>
-                    <li className='flex mr-10 mt-5'
-                        item={item} key={item.id}>
-                        <input type='checkbox' className='cursor-pointer w-5'
-                            defaultValue={item.packed}
-                            onChange={() => onChangePacked(item.id)}></input>
-
-                        <span className={`mx-3 text-xl font-secondary 
+                            <span className={`mx-3 text-xl font-secondary 
                         font-semibold ${item.packed ? 'line-through' : ''}`}
-                        >{item.quantity} {item.description}</span>
+                            >{item.quantity} {item.description}</span>
 
-                        <button onClick={() => onDeleteItem(item.id)}>❌</button>
-                    </li>)}
-            </ul>
+                            <button onClick={() => onDeleteItem(item.id)}
+                            className='transition-all hover:scale-125'>❌</button>
+                        </li>)}
+                </ul>
+            </div>
 
             <div className='flex items-center space-x-5 justify-center my-7'>
                 <select defaultValue={sort}
