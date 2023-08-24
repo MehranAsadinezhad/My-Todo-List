@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function AddItem({onAddItems}) {
+export default function AddItem({ onAddItems }) {
     const [description, setDescription] = useState('');
     const [quantity, setQuantity] = useState(1);
 
@@ -14,12 +14,11 @@ export default function AddItem({onAddItems}) {
             description, quantity, packed: false,
             id: Date.now()
         }
-        console.log(newItem);
         onAddItems(newItem);
-        setDescription("");
+        setDescription('');
         setQuantity(1);
     }
-    
+
     return (
         <form onSubmit={handleSubmit}
             className='bg-secondaryPink flex items-center justify-center' >
@@ -38,10 +37,11 @@ export default function AddItem({onAddItems}) {
                 className='bg-black rounded-full py-3 px-5 
             text-white mx-5 focus:outline-none transition-all
             focus:ring focus:ring-pink-100 focus:px-7' placeholder='Item...'
-                onChange={(e) => setDescription(e.target.value)}></input>
+                value={description} onChange={(e) => setDescription(e.target.value)}></input>
 
             <button className='bg-pink-100 py-3 px-5 rounded-full
-            text-black font-secondary font-bold'>ADD</button>
+            text-black font-secondary font-bold transition-all 
+            hover:bg-black hover:text-white'>ADD</button>
         </form>
     )
 }
