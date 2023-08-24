@@ -17,30 +17,35 @@ export default function Items({ items, onDeleteItem, onChangePacked, onClearItem
     return (
         <div className='flex flex-col justify-between 
         bg-sky-400 transition-all'>
-            <div className='my-7 mx-44 '>
-                <ul className='flex flex-wrap overflow-y-scroll'>
+            <div className='my-2 tablet:my-7 tablet:mx-44'>
+                <ul className='flex flex-wrap overflow-scroll'>
                     {sortedItems.map((item) =>
-                        <li className='flex mr-10 mt-5'
+                        <li className='flex bg-sky-500 rounded-full p-1
+                        justify-around mr-3 my-2 tablet:mr-10 target:mt-5
+                        tablet:p-3'
                             item={item} key={item.id}>
-                            <input type='checkbox' className='cursor-pointer w-5'
+                            <input type='checkbox' className='cursor-pointer tablet:w-5'
                                 defaultValue={item.packed}
                                 onChange={() => onChangePacked(item.id)}></input>
 
-                            <span className={`mx-3 text-xl font-secondary 
-                        font-semibold ${item.packed ? 'line-through' : ''}`}
+                            <span className={`font-secondary 
+                            font-bold mx-2 tablet:mx-3 
+                            ${item.packed ? 'line-through' : ''}`}
                             >{item.quantity} {item.description}</span>
 
                             <button onClick={() => onDeleteItem(item.id)}
-                            className='transition-all hover:scale-125'>❌</button>
+                                className='transition-all hover:scale-125'>❌</button>
                         </li>)}
                 </ul>
             </div>
 
-            <div className='flex items-center space-x-5 justify-center my-7'>
+            <div className='flex items-center justify-center mb-2 space-x-3
+            tablet:mb-7 tablet:space-x-6'>
                 <select defaultValue={sort}
                     onChange={(e) => setSort(e.target.value)}
-                    className='bg-black text-white px-5 py-2 
-                    rounded-full cursor-pointer font-semibold'>
+                    className='bg-black text-white 
+                    rounded-full cursor-pointer font-semibold p-1 tablet:px-5
+                    tablet:py-3'>
                     <option value="input"
                         className='font-semibold '>SORT BY INPUT ORDER</option>
                     <option value="description"
@@ -49,7 +54,8 @@ export default function Items({ items, onDeleteItem, onChangePacked, onClearItem
                         className='font-semibold '>SORT BY PACKED STATUS</option>
                 </select>
                 <button className='bg-black text-white font-semibold 
-                px-5 py-2 rounded-full cursor-pointer
+                rounded-full cursor-pointer p-1 tablet:px-5
+                tablet:py-3
                 transition-all hover:bg-pink-300 hover:text-black'
                     onClick={onClearItems}>CLEAR LIST</button>
             </div>

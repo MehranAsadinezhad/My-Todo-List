@@ -14,6 +14,13 @@ export default {
         primary: 'righteous',
         secondary: 'QuickSand',
       },
+      screens: {
+        phone: '480px',
+
+        tablet: '778px',
+
+        laptop: '1279px',
+      },
     },
   },
   plugins: [],
