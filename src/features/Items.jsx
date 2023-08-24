@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
 
-export default function Items({ items, onDeleteItem, onChangePacked }) {
+export default function Items({ items, onDeleteItem, onChangePacked, onClearItems }) {
     const [sort, setSort] = useState("input")
 
     let sortedItems;
     if (sort === 'input') sortedItems = items;
     if (sort === 'packed') {
-        sortedItems = items.slice().sort((a, b) => Number(a.packed) - Number(b.packed));
+        sortedItems = items.slice().sort((a, b) =>
+            Number(a.packed) - Number(b.packed));
     }
     if (sort === "description") {
-        sortedItems = items.slice().sort((a, b) => a.description.localeCompare(b.description));
+        sortedItems = items.slice().sort((a, b) =>
+            a.description.localeCompare(b.description));
     }
 
     return (
@@ -47,7 +49,7 @@ export default function Items({ items, onDeleteItem, onChangePacked }) {
                 <button className='bg-black text-white font-semibold 
                 px-5 py-2 rounded-full cursor-pointer
                 transition-all hover:bg-pink-300 hover:text-black'
-                >CLEAR LIST</button>
+                    onClick={onClearItems}>CLEAR LIST</button>
             </div>
         </div>
     )

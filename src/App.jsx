@@ -18,13 +18,16 @@ function App() {
     setItems((items) => items.map((item) =>
       item.id === id ? { ...item, packed: !item.packed } : item))
   }
+  function handleClearItems(){
+    setItems([]);
+  }
 
   return (
     <div className='grid grid-rows[auto_auto_1fr_auto] h-screen'>
       <Header />
       <AddItem onAddItems={handleAddItems} />
       <Items onDeleteItem={handleDeleteItem} items={items}
-        onChangePacked={handleChangePacked} />
+        onChangePacked={handleChangePacked} onClearItems={handleClearItems} />
       <Footer />
     </div>
   )
