@@ -8,8 +8,7 @@ export default {
         darkBrown: '#5a3e2b',
         lightBrown: '#ffebb3',
         primaryPink: '#f2a2',
-        secondaryPink: '#f2a',
-        cyan: '#76c7ad',
+        secondaryPink: '#f2a5',
       },
       fontFamily: {
         primary: 'righteous',
